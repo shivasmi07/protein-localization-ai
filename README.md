@@ -13,18 +13,24 @@ My focus was on evaluating which architectures are best suited for this task:
 - **ResNeSt-50d_4s2x40d** (split-attention CNN, [Zhang et al., 2020](https://arxiv.org/abs/2004.08955))  
 - **Swin Transformer V2 Small** (hierarchical vision transformer, [Liu et al., 2022](https://arxiv.org/abs/2111.09883))  
 
-### Key Experiments:
-- **Threshold**: Fixed at **0.5** for converting probabilities → binary predictions.  
-- **Per-class F1 evaluation**: Detailed analysis on the best-performing model (SwinV2 Small) to show strengths on both common (nucleoplasm, cytosol) and rare compartments (aggresomes, mitotic spindle).  
-- **Model comparison**: Direct comparison of SwinV2 vs ResNeSt using **ΔF1** and confidence scores.  
-  - SwinV2 showed consistently higher confidence and recall, especially for rare compartments.  
-  - Even when F1 scores were similar, SwinV2 ranked correct labels higher (leading to superior **mAP**).  
-- **Interpretability**: Used **Grad-CAM** to visualize attention maps and confirm models focused on biologically relevant regions.  
+### Key Experiments
+- **Step 1 – Model comparison**: We first trained and evaluated three architectures — **ResNet-50, ResNeSt-50d, and SwinV2 Small** — using standard evaluation metrics: **F1-Micro, F1-Macro, and mAP**. This helped establish which model performed best overall.  
+
+- **Step 2 – Best model analysis**: SwinV2 Small achieved the highest performance across all metrics, so we selected it for deeper analysis. We then performed a **per-class F1 evaluation**, which showed how well the model handled both common compartments (like nucleoplasm, cytosol) and rare compartments (such as aggresomes and mitotic spindle).  
+
+- **Step 3 – Threshold-based visualization**: Using a probability cutoff of **0.5**, we generated **Grad-CAM visualizations** to interpret how the models attended to cellular structures.  
+
+- **Step 4 – ΔF1 comparison with ResNeSt**: To understand relative strengths, we directly compared **SwinV2 vs ResNeSt** by looking at **ΔF1 (performance difference per class)** and model confidence scores.  
+  - SwinV2 consistently demonstrated **higher recall and confidence**, particularly for rare or subtle compartments.  
+  - Even when the two models had similar F1 scores, SwinV2 tended to rank correct labels higher in probability, which led to superior **mAP**.  
+
+- **Step 5 – Interpretability**: Grad-CAM confirmed that SwinV2 focused on biologically meaningful regions of the cell, validating not just its numerical performance but also the relevance of its attention patterns.  
 
 ---
 
 ## 🗂 Repository Structure
 01_Preprocessing_Data_splitting/
+
 ├── EDA.ipynb # Exploratory data analysis
 
 ├── Step2-Splittingfile.ipynb # Train/val/test split
@@ -146,5 +152,5 @@ Pretrained models: timm → 🔗 https://github.com/huggingface/pytorch-image-mo
 Shivasmi Sharma
 MSc Data Science – University of Surrey
 
-🔗 GitHub: github.com/shivasmi07
-🔗 LinkedIn: linkedin.com/in/shivasmi-sharma
+🔗 GitHub: https://github.com/shivasmi07  
+🔗 LinkedIn: https://linkedin.com/in/shivasmi-sharma  
