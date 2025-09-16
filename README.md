@@ -38,6 +38,7 @@ My focus was on evaluating which architectures are best suited for this task:
 └── Output/ # Processed CSVs
 
 02_Models/
+
 ├── resnet50.py
 
 ├── resneST50d_4s2_40d.py
@@ -49,6 +50,7 @@ My focus was on evaluating which architectures are best suited for this task:
 └── Output/ # Training metrics, results
 
 03_Swinv2_vs_ResneST50d/
+
 ├── compare_pred.py # Compare SwinV2 vs ResNeSt predictions
 
 ├── grid_swin_better.py # Grid visualization of SwinV2 better cases
@@ -56,6 +58,7 @@ My focus was on evaluating which architectures are best suited for this task:
 └── Output/ # Results comparing SwinV2 and ResNeSt
 
 04_Gradcam/
+
 ├── gradcam.py # Grad-CAM main script
 
 ├── swinV2_better_resneST50d.py # Compare Grad-CAM attention (SwinV2 vs ResNeSt)
@@ -67,6 +70,7 @@ My focus was on evaluating which architectures are best suited for this task:
 └── Output/ # Saved Grad-CAM overlays and plots
 
 Appendix/
+
 ├── ResNet-50_val_metrics.png
 
 ├── ResNeSt-50d_val_metrics.png
@@ -86,6 +90,7 @@ Appendix/
 Logs/ # Training logs & schedulers
 
 Visualization/
+
 ├── model_comparison_plots.py # Script for plotting model performance
 
 ├── test_loss_comparison.py # Compare test losses between models
@@ -93,6 +98,7 @@ Visualization/
 └── test_metrics_comparison.py # Compare test metrics (F1, mAP, etc.)
 
 src/
+
 ├── dataset.py # Dataset preparation utilities
 
 ├── loss.py # Focal loss and other loss functions
